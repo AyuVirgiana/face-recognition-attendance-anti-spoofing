@@ -7,3 +7,7 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 - *Face Recognition*: Utilizes advanced algorithms to recognize faces in real-time accurately.
 - *Anti-Spoofing Measures*: Implements robust anti-spoofing features to enhance system security.
 - *Automatic Attendance Marking*: Marks attendance automatically upon successful face recognition.
+
+# Contibutors
+- Ayu Purnama Virgiana (210040171)
+- I Komang Adisaputra Gita (210040017)
