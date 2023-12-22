@@ -15,22 +15,22 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 
 **Data Storage:**
 - Serialization:
-  PyYAML for configuration data or settings stored in YAML format
-  pickle for storing face data and attendance records as Python objects
+  - PyYAML for configuration data or settings stored in YAML format
+  - pickle for storing face data and attendance records as Python objects
 
 **Face Recognition:**
 - Libraries:
-  face_recognition for face detection and recognition
-  OpenCV for real-time face detection and integration
-  Algorithm: FaceNet or dlib for accurate facial feature extraction (??)
+  - face_recognition for face detection and recognition
+  - OpenCV for real-time face detection and integration
+  - Algorithm: FaceNet or dlib for accurate facial feature extraction (??)
 
 **Anti-Spoofing**
 - Techniques: Liveness detection using a combination of methods such as texture analysis, motion analysis, and depth analysis (??)
 - Libraries: OpenCV and specialized anti-spoofing libraries if available (??)
 
 **Webcam Integration**
-Library: OpenCV for accessing and capturing live webcam feed
-Real-time Communication: WebSockets for seamless real-time data transfer (??)
+- Library: OpenCV for accessing and capturing live webcam feed
+- Real-time Communication: WebSockets for seamless real-time data transfer (??)
 
 # Installation
 Clone the repository:
