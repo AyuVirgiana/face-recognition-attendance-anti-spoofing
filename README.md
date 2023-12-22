@@ -10,16 +10,20 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 
 # Installation
 Clone the repository:
+```bash
 git clone https://github.com/your-username/face-recognition-attendance-anti-spoofing.git
 cd face-recognition-attendance-anti-spoofing
+```
 
 # Install dependencies:
 Follow the setup instructions in the documentation to configure the system.
+```bash
 pip install -r requirements.txt
-
+```
 # Run the system:
+```bash
 streamlit run [file_name.py] [ARGUMENTS)
-
+```
 # Contibutors
 - Ayu Purnama Virgiana (210040171)
 - I Komang Adisaputra Gita (210040017)
