@@ -1,122 +1,128 @@
+# Import library yang diperlukan
 import streamlit as st
 import cv2
-import face_recognition
-import os
-import pandas as pd
-from datetime import datetime
-import numpy as np
+import face_recognition as frg
+import yaml 
+from utils import recognize, build_dataset
 
-# Inisialisasi webcam
-def init_camera():
-    return cv2.VideoCapture(0)
+# Mengatur konfigurasi halaman Streamlit
+st.set_page_config(layout="wide")
 
-# Fungsi untuk mendeteksi wajah dan mengembalikan nama jika dikenali
-def recognize_face(frame, known_faces):
-    face_locations = face_recognition.face_locations(frame)
-    face_encodings = face_recognition.face_encodings(frame, face_locations)
+# Membaca konfigurasi dari file YAML
+cfg = yaml.load(open('config.yaml','r'),Loader=yaml.FullLoader)
+PICTURE_PROMPT = cfg['INFO']['PICTURE_PROMPT']
+WEBCAM_PROMPT = cfg['INFO']['WEBCAM_PROMPT']
 
-    for face_encoding in face_encodings:
-        matches = face_recognition.compare_faces(known_faces, face_encoding)
-        name = "Unknown"
+# Menampilkan judul dan menu settings di sidebar
+st.sidebar.title("Settings")
 
-        if True in matches:
-            first_match_index = matches.index(True)
-            name = known_face_names[first_match_index]
+# Membuat menu bar untuk memilih jenis input (Picture atau Webcam)
+menu = st.sidebar.selectbox("Menu", ["Home", "Attendance Table", "Database"])
 
-        return name
+# Slider untuk mengatur toleransi pengenalan wajah
+TOLERANCE = st.sidebar.slider("Tolerance",0.0,1.0,0.5,0.01)
+st.sidebar.info("Tolerance is the threshold for face recognition. The lower the tolerance, the more strict the face recognition. The higher the tolerance, the more loose the face recognition.")
 
-# Fungsi untuk menambahkan data wajah ke database
-def add_face_data(image, name):
-    face_encoding = face_recognition.face_encodings(face_recognition.load_image_file(image))[0]
-    known_faces.append(face_encoding)
-    known_face_names.append(name)
+# Informasi seputar mahasiswa di sidebar 
+st.sidebar.title("Attender Information")
+name_container = st.sidebar.empty()
+id_container = st.sidebar.empty()
+name_container.info('Name: Unknown')
+id_container.success('ID: Unknown')
 
-# Fungsi untuk menyimpan data absensi
-def save_attendance(name):
-    df = pd.DataFrame({'ID': [len(attendance) + 1],
-                       'Nama': [name],
-                       'Tanggal Kehadiran': [datetime.now().date()],
-                       'Jam Kehadiran': [datetime.now().strftime('%H:%M:%S')]})
-    attendance.append(df)
-    return df
-
-# Fungsi utama
-def main():
+if menu == "Home":
     st.title("Face Recognition Attendance System")
-
-    menu = st.sidebar.selectbox("Menu", ["Home", "Tabel Absensi", "Data Training"])
+    st.info("Click the button below to start attendance")
+    if st.button("Start"):
+        st.write(WEBCAM_PROMPT)
     
-    if menu == "Home":
-        #st.header("Absensi")
-
-        # Inisialisasi webcam
-        cap = init_camera()
-
-        # Button untuk memulai absensi
-        if st.button("Mulai Absen"):
-            st.subheader("Absen Sedang Berlangsung...")
-            while True:
-                ret, frame = cap.read()
-
-                # Ubah format BGR menjadi RGB
-                frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-                # Tampilkan frame menggunakan st.image
-                st.image(frame_rgb, channels="RGB")
-
-                name = recognize_face(frame, known_faces)
-
-                if name != "Unknown":
-                    st.success(f"Halo {name}. Anda sudah diabsen")
-                    attendance_df = save_attendance(name)
-                    st.table(attendance_df)
-                    break
-
-            cap.release()
-
-    elif menu == "Tabel Absensi":
-        st.header("Tabel Absensi")
-        if attendance:
-            df = pd.concat(attendance, ignore_index=True)
-            st.table(df)
-        else:
-            st.info("Belum ada data absensi.")
-
-    elif menu == "Data Training":
-        st.header("Data Training")
-
-        # Dropdown untuk memilih aksi
-        action = st.selectbox("Pilih Aksi", ["Tambah Data", "Hapus Data"])
-
-        if action == "Tambah Data":
-            st.subheader("Tambah Data Wajah")
+        # Pengaturan kamera
+        cam = cv2.VideoCapture(0)
+        cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+        cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+        FRAME_WINDOW = st.image([])
+        
+        while True:
+            # Membaca frame dari kamera
+            ret, frame = cam.read()
+            if not ret:
+                st.error("Failed to capture frame from camera")
+                st.info("Please turn off the other app that is using the camera and restart app")
+                st.stop()
             
-            # Input nama pemilik wajah
-            name = st.text_input("Nama Pemilik Wajah")
+            # Mengenali wajah pada frame dari kamera
+            image, name, id = recognize(frame,TOLERANCE)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            
+            # Menampilkan nama dan ID orang yang dikenali
+            name_container.info(f"Name: {name}")
+            id_container.success(f"ID: {id}")
+            FRAME_WINDOW.image(image)
 
-            # Membersihkan nama dari karakter yang tidak diizinkan untuk nama file
-            cleaned_name = ''.join(e for e in name if e.isalnum())
+elif menu == "Attendance Table":
+    st.header("Attendance Table")
+elif menu == "Database":
+    st.header("Database")
+    # Dropdown untuk memilih aksi
+    action = st.selectbox("Choose Action", ["Add Data", "Delete Data"])
+    if action == "Add Data":
+        st.subheader("Add New Data")
+        # Input nama pemilik wajah
+        name = st.text_input("Name", placeholder='Enter name of face owner')
 
-            # Button untuk mengambil gambar dari webcam
-            st.button("Ambil Gambar")
+        # Membersihkan nama dari karakter yang tidak diizinkan untuk nama file
+        cleaned_name = ''.join(e for e in name if e.isalnum())
+
+        # Button untuk mengambil gambar dari webcam
+        if st.button("Take Picture"):    
+            img_file_buffer = st.camera_input("Take a picture")
+            submit_btn = st.button("Submit", key="submit_btn")
+
+            if img_file_buffer is not None:
+                # Mengolah gambar dari webcam menggunakan OpenCV
+                bytes_data = img_file_buffer.getvalue()
+                cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
+                
+                if submit_btn: 
+                    # Memastikan nama dan ID diisi
+                    if name == "" or id == "":
+                        st.error("Please enter name and ID")
+                    else:
+                        # Memanggil fungsi submitNew untuk menambahkan data
+                        ret = submitNew(name, id, cv2_img)
+                        
+                        # Menampilkan pesan sesuai dengan hasil operasi
+                        if ret == 1: 
+                            st.success("Student Added")
+                        elif ret == 0: 
+                            st.error("Student ID already exists")
+                        elif ret == -1: 
+                            st.error("There is no face in the picture")
 
 
-        elif action == "Hapus Data":
-            st.subheader("Hapus Data Wajah")
+    elif action == "Delete Data":
+        st.subheader("Delete Data")
 
-            # Dropdown untuk memilih wajah yang akan dihapus
-            name_to_remove = st.selectbox("Pilih Nama", known_face_names)
+        # Dropdown untuk memilih wajah yang akan dihapus
+        # name_to_remove = st.selectbox("Choose the name of face owner", known_face_names)
+        name_to_delete = st.text_input("Choose the name of face owner")
 
-            # Button untuk menghapus data wajah
-            if st.button("Hapus Data"):
-                st.success(f"Data wajah telah dihapus.")
+        # Button untuk menghapus data wajah
+        if st.button("Delete"):
+            st.success(f"The data is successfully deleted!")
+
+# Bagian Developer Section (di sidebar)
+with st.sidebar.form(key='my_form'):
+    st.title("Developer Section")
+
+    # Tombol untuk membangun kembali dataset
+    submit_button = st.form_submit_button(label='REBUILD DATASET')
+    
+    # Jika tombol ditekan, membangun ulang dataset
+    if submit_button:
+        with st.spinner("Rebuilding dataset..."):
+            build_dataset()
+        st.success("Dataset has been reset")
 
 # Database untuk menyimpan data wajah yang telah di-training
-known_faces = []
-known_face_names = []
-
-# Database untuk menyimpan data absensi
-attendance = []
-
-if __name__ == "__main__":
-    main()
+# known_face_names = []
