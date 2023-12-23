@@ -8,8 +8,8 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 - **Anti-Spoofing Measures**: Implements robust anti-spoofing features to enhance system security.
 - **Automatic Attendance Marking**: Marks attendance automatically upon successful face recognition.
 
-# Google Collab
-[![Open in Colab] (https://colab.research.google.com/assets/colab-badge.svg) 1(https://colab.research.google.com/github/nonoesp/live/tree/main/0039/virtual-sketching-vectorization.ipynb)
+# Google Colab
+https://colab.research.google.com/drive/1CXWMAeXxE5rV2I7uS4wWv9l8pt_tfGeK?usp=sharing
 
 # System Architecture
 **Frontend**: 
