@@ -1,0 +1,8 @@
+
+PATH:
+  DATASET_DIR: 'dataset/'
+  PKL_PATH: 'dataset/database.pkl'
+
+INFO:
+  PICTURE_PROMPT: 'This app recognizes faces in a live video stream. To use it, simply press start and allow access to your webcam.'
+  WEBCAM_PROMPT: 'This app recognizes faces in a live video stream. To use it, simply press start and allow access to your webcam.'
