@@ -9,9 +9,8 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 - **Automatic Attendance Marking**: Marks attendance automatically upon successful face recognition.
 
 # Google Collab
-<a target="_blank" href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
+[![Open in Colab] (https://colab.research.google.com/assets/ colab-badge.svg) 1(https: //colab.research.google.com/github/nonoesp/
+live/tree/main/0039/virtual-sketching-vectorization.ipynb)
 
 # System Architecture
 **Frontend**: 
