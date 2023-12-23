@@ -44,6 +44,30 @@ def recognize(image,TOLERANCE):
         cv2.putText(image,name,(left,top-10),cv2.FONT_HERSHEY_SIMPLEX,0.75,(0,255,0),2)
     return image, name, id
 
+
+# Fungsi untuk mendapatkan informasi dari suatu ID
+def get_info_from_name(name): 
+    database = get_databse() 
+    for idx, person in database.items(): 
+        if person['name'] == name: 
+            name = person['name']
+            image = person['image']
+            return name, image, idx       
+    return None, None, None
+
+# Fungsi untuk menghapus satu entitas berdasarkan ID
+def deleteOne(name):
+    database = get_databse()
+    id = str(name)
+    for key, person in database.items():
+        if person['name'] == id:
+            del database[key]
+            break
+    with open(PKL_PATH,'wb') as f:
+        pkl.dump(database,f)
+    return True
+
+
 # Fungsi untuk membangun dataset dari gambar-gambar dalam direktori
 def build_dataset():
     counter = 0
