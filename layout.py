@@ -3,7 +3,7 @@ import streamlit as st
 import cv2
 import face_recognition as frg
 import yaml 
-from utils import recognize, build_dataset
+from utils import recognize, build_dataset, get_info_from_name, deleteOne
 
 # Mengatur konfigurasi halaman Streamlit
 st.set_page_config(layout="wide")
@@ -101,15 +101,33 @@ elif menu == "Database":
 
 
     elif action == "Delete Data":
+        def del_btn_callback(id):
+            deleteOne(name)
+            st.success("Data deleted")
+        
         st.subheader("Delete Data")
 
         # Dropdown untuk memilih wajah yang akan dihapus
         # name_to_remove = st.selectbox("Choose the name of face owner", known_face_names)
-        name_to_delete = st.text_input("Choose the name of face owner")
+        name = st.text_input("Name", placeholder='Enter name of face owner')
 
         # Button untuk menghapus data wajah
         if st.button("Delete"):
-            st.success(f"The data is successfully deleted!")
+            # Mendapatkan informasi (nama, gambar) dari ID yang diberikan
+            name, image, _ = get_info_from_name(name)
+            
+            if name == None and image == None:
+                st.error("Data does not exist")
+            else:
+                # Menampilkan informasi nama dan gambar untuk konfirmasi penghapusan
+                st.success(f"Name of data is: {name}")
+                st.warning("This is the information of data")
+                st.image(image)
+                
+                # Menampilkan tombol delete dengan mengaitkan fungsi callback
+                del_btn = st.button("Delete", key="del_btn", on_click=del_btn_callback, args=(name,)) 
+
+            # st.success(f"The data is successfully deleted!")
 
 # Bagian Developer Section (di sidebar)
 with st.sidebar.form(key='my_form'):
