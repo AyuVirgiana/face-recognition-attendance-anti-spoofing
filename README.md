@@ -8,6 +8,11 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 - **Anti-Spoofing Measures**: Implements robust anti-spoofing features to enhance system security.
 - **Automatic Attendance Marking**: Marks attendance automatically upon successful face recognition.
 
+# Google Collab
+<a target="_blank" href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 # System Architecture
 **Frontend**: 
 - Framework: Streamlit
@@ -47,7 +52,7 @@ pip install -r requirements.txt
 # Run the system:
 ```bash
 streamlit run [file_name.py] [ARGUMENTS)
-```
+``
 # Contibutors
 - Ayu Purnama Virgiana (210040171)
 - I Komang Adisaputra Gita (210040017)
