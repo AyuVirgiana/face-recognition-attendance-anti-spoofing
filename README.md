@@ -1,4 +1,14 @@
-```
+# face-recognition-attendance-anti-spoofing
+This GitHub repository contains a comprehensive Face Recognition Attendance System with built-in Anti-Spoofing features. The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
+
+# Key Features
+- **Real-time Face Data Addition**: Capture and add face data through a live webcam feed for instant integration.
+- **Data Deletion**: Effortlessly remove or update face data to maintain an accurate database.
+- **Face Recognition**: Utilizes advanced algorithms to recognize faces in real-time accurately.
+- **Anti-Spoofing Measures**: Implements robust anti-spoofing features to enhance system security.
+- **Automatic Attendance Marking**: Marks attendance automatically upon successful face recognition.
+
+# Datasets
 ├── datasets
     └── RGB_Images
         ├── org_1_80x60
@@ -18,19 +28,6 @@
         └── ...
 ```
 
-# face-recognition-attendance-anti-spoofing
-This GitHub repository contains a comprehensive Face Recognition Attendance System with built-in Anti-Spoofing features. The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
-
-# Key Features
-- **Real-time Face Data Addition**: Capture and add face data through a live webcam feed for instant integration.
-- **Data Deletion**: Effortlessly remove or update face data to maintain an accurate database.
-- **Face Recognition**: Utilizes advanced algorithms to recognize faces in real-time accurately.
-- **Anti-Spoofing Measures**: Implements robust anti-spoofing features to enhance system security.
-- **Automatic Attendance Marking**: Marks attendance automatically upon successful face recognition.
-
-# Google Colab
-https://colab.research.google.com/drive/1CXWMAeXxE5rV2I7uS4wWv9l8pt_tfGeK?usp=sharing
-
 # System Architecture
 **Frontend**: 
 - Framework: Streamlit
@@ -39,7 +36,6 @@ https://colab.research.google.com/drive/1CXWMAeXxE5rV2I7uS4wWv9l8pt_tfGeK?usp=sh
 **Data Storage:**
 - Serialization:
   - PyYAML for configuration data or settings stored in YAML format
-  - pickle for storing face data and attendance records as Python objects
 
 **Face Recognition:**
 - Libraries:
@@ -62,15 +58,16 @@ git clone https://github.com/your-username/face-recognition-attendance-anti-spoo
 cd face-recognition-attendance-anti-spoofing
 ```
 
-# Install dependencies:
+# Install dependencies
 Follow the setup instructions in the documentation to configure the system.
 ```bash
 pip install -r requirements.txt
 ```
-# Run the system:
+# Run the system
 ```bash
 streamlit run [file_name.py] [ARGUMENTS)
-``
-# Contibutors
+```
+
+# Contributors
 - Ayu Purnama Virgiana (210040171)
 - I Komang Adisaputra Gita (210040017)
