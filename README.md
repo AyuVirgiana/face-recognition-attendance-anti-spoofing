@@ -39,7 +39,7 @@ The entire code is written in Python **this project made and tested in python 3.
 # Installation
 Clone the repository:
 ```bash
-git clone https://github.com/your-username/face-recognition-attendance-anti-spoofing.git
+git clone https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing.git
 cd face-recognition-attendance-anti-spoofing
 ```
 # Install dependencies
@@ -53,8 +53,8 @@ streamlit run [file_name.py] [ARGUMENTS)
 ```
    
 # References
-- (https://github.com/timesler/facenet-pytorch.git) by timesler
 - This project is supported by Silent-Face-Anti-Spoofing belongs to [minivision technology](https://www.minivision.cn/).Special thanks to Minivision for providing the anti-spoofing models used in this test. Github Link : (https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
+- (https://github.com/timesler/facenet-pytorch.git) Face Recognition using Pytorch by timesler
 
 
 # Contributors
