@@ -1,4 +1,4 @@
-# face-recognition-attendance-anti-spoofing
+# FACE RECOGNITION SYSTEM with ANTI SPOOFING
 This GitHub repository contains a comprehensive Face Recognition Attendance System with built-in Face Recognition using Pytorch and Anti-Spoofing features. The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
 # Overview
