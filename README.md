@@ -49,7 +49,7 @@ pip install -r requirements.txt
 ```
 # Run the system
 ```bash
-streamlit run [file_name.py] [ARGUMENTS)
+streamlit run [app.py] [ARGUMENTS)
 ```
    
 # References
