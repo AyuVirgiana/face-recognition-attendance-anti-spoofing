@@ -52,17 +52,18 @@ pip install -r requirements.txt
 ```bash
 streamlit run [file_name.py] [ARGUMENTS)
 ```
+
+# Training Process
+Jika Anda ingin melatih model Anda sendiri, ikuti langkah-langkah berikut:
+1. Praproses data pelatihan jika diperlukan
+2. Jalankan script pelatihan menggunakan train_main.py
+3. Atur parameter pelatihan sesuai kebutuhan Anda
+   
 # Lisence
 - This Face Recognition Attendance System is licensed under the MIT License. Feel free to use and modify the code as needed. If you encounter any issues or have suggestions for improvement, please create an issue in the GitHub repository.
 -  This project is supportd by Silent-Face-Anti-Spoofing belongs to [minivision technology](https://www.minivision.cn/).Special thanks to Minivision for providing the anti-spoofing models used in this test.
 
 # Additional Information
-- **File Structure:**
-- visitor_database: Directory to store the database of visitor information.
-- visitor_history: Directory to store the history of visitor attendance.
-- resources/anti_spoof_models: Directory containing anti-spoofing models.
-
-- **Note:**
 The system uses the InceptionResnetV1 model for face recognition and MTCNN for face detection.
 Make sure to have a compatible GPU for faster processing (optional, but recommended).
 
