@@ -24,14 +24,12 @@ The application allows users to perform the following tasks:
 
 **Face Recognition:**
 - Libraries:
-  - face_recognition for face detection and recognition
-  - OpenCV for real-time face detection and integration
-  - Algorithm: FaceNet, dlib for accurate facial feature extraction
+  Using facenet_pytorch for MTCNN and InceptionResnetV1 Models
 
 **Anti-Spoofing**
-- Techniques: Liveness detection using a combination of methods such as texture analysis, motion analysis, and depth analysis (??)
-- Libraries: OpenCV and specialized anti-spoofing libraries if available (??)
-
+- Model:
+  MiniFASNet variants include MiniFASNetV1, MiniFASNetV2, MiniFASNetV1SE, and MiniFASNetV2SE.
+  
 **Webcam Integration**
 - Library: OpenCV for accessing and capturing live webcam feed
 - Real-time Communication: WebSockets for seamless real-time data transfer (??)
@@ -56,7 +54,9 @@ streamlit run [file_name.py] [ARGUMENTS)
 # Training Process
 Jika Anda ingin melatih model Anda sendiri, ikuti langkah-langkah berikut:
 1. Praproses data pelatihan jika diperlukan
-2. Jalankan script pelatihan menggunakan train_main.py
+2. ```
+   python train.py --device_ids 0  --patch_info your_patch
+   ```  
 3. Atur parameter pelatihan sesuai kebutuhan Anda
    
 # Lisence
