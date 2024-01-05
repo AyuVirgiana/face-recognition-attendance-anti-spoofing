@@ -1,8 +1,13 @@
+streamlit==1.29.0
+streamlit-option-menu==0.3.6
 easydict==1.10
 numpy==1.23.5
+pandas==1.5.3
+facenet_pytorch==2.5.3
+torch=2.0.0
 tqdm==4.64.1
 torchvision==0.14.1
 torch==1.13.1
 opencv-python==4.6.0.66
 Pillow==9.3.0
-tensorboardX==2.5.1
+tensorboardX==2.6
