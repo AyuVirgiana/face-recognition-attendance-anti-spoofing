@@ -20,10 +20,10 @@ The application allows users to perform the following tasks:
 - User Interface Components: Python with Streamlit widgets
 
 **Data Storage:**
-
+This project store visitor information in two CSV files, one for general user information (visitors_db.csv) and another for visitor history (visitors_history.csv)
 
 **Face Recognition:**
-- Libraries:
+- Library:
   Using facenet_pytorch for MTCNN and InceptionResnetV1 Models
 
 **Anti-Spoofing**
@@ -31,8 +31,8 @@ The application allows users to perform the following tasks:
   MiniFASNet variants include MiniFASNetV1, MiniFASNetV2, MiniFASNetV1SE, and MiniFASNetV2SE supported by Silent-Face-Anti-Spoofing developed by Minivision
   
 **Webcam Integration**
-- Library: OpenCV for accessing and capturing live webcam feed
-- Real-time Communication: WebSockets for seamless real-time data transfer (??)
+- Library:
+  OpenCV for accessing and capturing live webcam feed
 
 # Installation
 Clone the repository:
