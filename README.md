@@ -9,6 +9,7 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 - **Automatic Attendance Marking**: Marks attendance automatically upon successful face recognition.
 
 # Datasets
+```
 ├── datasets
     └── RGB_Images
         ├── org_1_80x60
