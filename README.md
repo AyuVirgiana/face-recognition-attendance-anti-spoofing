@@ -1,4 +1,4 @@
-![image](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/assets/129573841/a4de85c5-4a96-4577-a960-f6f7c61f3d1d)# FACE RECOGNITION SYSTEM with ANTI SPOOFING
+# FACE RECOGNITION SYSTEM with ANTI SPOOFING
 This GitHub repository contains a comprehensive Face Recognition Attendance System with built-in Face Recognition using Pytorch and Anti-Spoofing features. The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
 # Overview
