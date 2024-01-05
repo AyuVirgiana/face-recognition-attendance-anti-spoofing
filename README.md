@@ -1,4 +1,4 @@
-# FACE RECOGNITION SYSTEM with ANTI SPOOFING
+![image](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/assets/129573841/a4de85c5-4a96-4577-a960-f6f7c61f3d1d)# FACE RECOGNITION SYSTEM with ANTI SPOOFING
 This GitHub repository contains a comprehensive Face Recognition Attendance System with built-in Face Recognition using Pytorch and Anti-Spoofing features. The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
 # Overview
@@ -28,7 +28,7 @@ The application allows users to perform the following tasks:
 
 **Anti-Spoofing**
 - Model:
-  MiniFASNet variants include MiniFASNetV1, MiniFASNetV2, MiniFASNetV1SE, and MiniFASNetV2SE.
+  MiniFASNet variants include MiniFASNetV1, MiniFASNetV2, MiniFASNetV1SE, and MiniFASNetV2SE supported by Silent-Face-Anti-Spoofing developed by Minivision
   
 **Webcam Integration**
 - Library: OpenCV for accessing and capturing live webcam feed
@@ -50,18 +50,10 @@ pip install -r requirements.txt
 ```bash
 streamlit run [file_name.py] [ARGUMENTS)
 ```
-
-# Training Process
-Jika Anda ingin melatih model Anda sendiri, ikuti langkah-langkah berikut:
-1. Praproses data pelatihan jika diperlukan
-2. ```
-   python train.py --device_ids 0  --patch_info your_patch
-   ```  
-3. Atur parameter pelatihan sesuai kebutuhan Anda
    
-# Lisence
-- This Face Recognition Attendance System is licensed under the MIT License. Feel free to use and modify the code as needed. If you encounter any issues or have suggestions for improvement, please create an issue in the GitHub repository.
--  This project is supportd by Silent-Face-Anti-Spoofing belongs to [minivision technology](https://www.minivision.cn/).Special thanks to Minivision for providing the anti-spoofing models used in this test.
+# References
+- (https://github.com/timesler/facenet-pytorch.git) by timesler
+- This project is supported by Silent-Face-Anti-Spoofing belongs to [minivision technology](https://www.minivision.cn/).Special thanks to Minivision for providing the anti-spoofing models used in this test. Github Link : (https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
 
 # Additional Information
 The system uses the InceptionResnetV1 model for face recognition and MTCNN for face detection.
