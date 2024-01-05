@@ -11,7 +11,7 @@ The application allows users to perform the following tasks:
 - **Face Recognition**: Utilizes advanced algorithms to recognize faces in real-time accurately.
 - **Anti-Spoofing**: Utilizes an anti-spoofing model to differentiate between real and fake faces during validation.
 - **Attendance Logging**: Records the ID, visitor name, and timestamp when a person is recognized.
-- **Database Management**: The system maintains a database of visitors, including their names and facial encodings.
+- **Data Storage Management**: The system maintains 2 data storage for visitors information.
 - **User-Friendly Interface**: The Streamlit web application provides a clean and intuitive interface for users to interact with the system.
 
 # System Architecture
