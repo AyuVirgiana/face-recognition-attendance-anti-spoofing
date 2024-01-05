@@ -15,9 +15,11 @@ The application allows users to perform the following tasks:
 - **User-Friendly Interface**: The Streamlit web application provides a clean and intuitive interface for users to interact with the system.
 
 # System Architecture
+The entire code is written in Python **this project made and tested in python 3.11.2**
+
 **Frontend**: 
-- Framework: Streamlit
-- User Interface Components: Python with Streamlit widgets
+- The system utilizes **Streamlit** to create a web interface. The main UI elements include a title bar, a sidebar for navigation, and different sections for
+  visitor validation, viewing visitor history, and adding to the database.
 
 **Data Storage:**
 This project store visitor information in two CSV files, one for general user information (visitors_db.csv) and another for visitor history (visitors_history.csv)
@@ -40,7 +42,6 @@ Clone the repository:
 git clone https://github.com/your-username/face-recognition-attendance-anti-spoofing.git
 cd face-recognition-attendance-anti-spoofing
 ```
-
 # Install dependencies
 Follow the setup instructions in the documentation to configure the system.
 ```bash
@@ -55,9 +56,6 @@ streamlit run [file_name.py] [ARGUMENTS)
 - (https://github.com/timesler/facenet-pytorch.git) by timesler
 - This project is supported by Silent-Face-Anti-Spoofing belongs to [minivision technology](https://www.minivision.cn/).Special thanks to Minivision for providing the anti-spoofing models used in this test. Github Link : (https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
 
-# Additional Information
-The system uses the InceptionResnetV1 model for face recognition and MTCNN for face detection.
-Make sure to have a compatible GPU for faster processing (optional, but recommended).
 
 # Contributors
 - Ayu Purnama Virgiana (210040171)
