@@ -22,7 +22,7 @@ The entire code is written in Python **this project made and tested in python 3.
   visitor validation, viewing visitor history, and adding to the database.
 
 **Data Storage:**
-This project store visitor information in two CSV files, one for general user information (visitors_db.csv) and another for visitor history (visitors_history.csv)
+- This project store visitor information in two CSV files, one for general user information (visitors_db.csv) and another for visitor history (visitors_history.csv)
 
 **Face Recognition:**
 - Library:
