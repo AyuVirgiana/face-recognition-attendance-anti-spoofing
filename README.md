@@ -35,8 +35,7 @@ This GitHub repository contains a comprehensive Face Recognition Attendance Syst
 - User Interface Components: Python with Streamlit widgets
 
 **Data Storage:**
-- Serialization:
-  - PyYAML for configuration data or settings stored in YAML format
+
 
 **Face Recognition:**
 - Libraries:
