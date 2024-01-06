@@ -1,11 +1,7 @@
 # FACE RECOGNITION SYSTEM with ANTI SPOOFING
-This GitHub repository contains a comprehensive Face Recognition Attendance System with built-in Face Recognition using Pytorch and Anti-Spoofing features. The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
-
-# Overview
-The application allows users to perform the following tasks:
-- **Visitor Validation**: Capture an image using the camera and perform face recognition + anti-spoof to validate visitors. The system checks the captured face against the database of known faces and identifies the person if a match is found.
-- **View Visitor History**: View the history of visitor attendance, including their ID, name, and timestamp of the visit. Additionally, the application provides an option to search and display images of specific visitors.
-- **Add to Database**: Add new individuals to the database for future recognition. Users can input the person's name and either upload a picture or capture one using the camera.
+This GitHub repository contains a web-based Facial Recognition Attendance System built with the Python language and the Streamlit framework. 
+The System built with Face Recognition using Inception Resnet (V1) models in pytorch, pretrained on VGGFace2 and CASIA-Webface datasets, also Anti-Spoofing models by (https://www.minivision.cn/). 
+The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
 # Key Features
 - **Face Recognition**: Utilizes advanced algorithms to recognize faces in real-time accurately.
@@ -13,6 +9,12 @@ The application allows users to perform the following tasks:
 - **Attendance Logging**: Records the ID, visitor name, and timestamp when a person is recognized.
 - **Data Storage Management**: The system maintains 2 data storage for visitors information.
 - **User-Friendly Interface**: The Streamlit web application provides a clean and intuitive interface for users to interact with the system.
+  
+# Features
+The application allows users to perform the following tasks:
+- **Visitor Validation**: Capture an image using the camera and perform face recognition + anti-spoof to validate visitors. The system checks the captured face against the database of known faces and identifies the person if a match is found.
+- **View Visitor History**: View the history of visitor attendance, including their ID, name, and timestamp of the visit. Additionally, the application provides an option to search and display images of specific visitors.
+- **Add to Database**: Add new individuals to the database for future recognition. Users can input the person's name and either upload a picture or capture one using the camera.
 
 # System Architecture
 The entire code is written in Python **this project made and tested in python 3.11.2**
@@ -22,19 +24,19 @@ The entire code is written in Python **this project made and tested in python 3.
   visitor validation, viewing visitor history, and adding to the database.
 
 **Data Storage:**
-- This project store visitor information in two CSV files, one for general user information (visitors_db.csv) and another for visitor history (visitors_history.csv)
+- This project store visitor information in two CSV files, one for general user information (visitors_db.csv) and another for visitor history (visitors_history.csv).
 
 **Face Recognition:**
 - Library:
-  Using facenet_pytorch for MTCNN and InceptionResnetV1 Models
+  Using facenet_pytorch for MTCNN and InceptionResnetV1 Models, pretrained on VGGFace2 and CASIA-Webface datasets.
 
 **Anti-Spoofing**
 - Model:
-  MiniFASNet variants include MiniFASNetV1, MiniFASNetV2, MiniFASNetV1SE, and MiniFASNetV2SE supported by Silent-Face-Anti-Spoofing developed by Minivision
+  MiniFASNet variants include MiniFASNetV1, MiniFASNetV2, MiniFASNetV1SE, and MiniFASNetV2SE supported by Silent-Face-Anti-Spoofing developed by (https://www.minivision.cn/).
   
 **Webcam Integration**
 - Library:
-  OpenCV for accessing and capturing live webcam feed
+  OpenCV for accessing and capturing live webcam feed.
 
 # Installation
 Clone the repository:
