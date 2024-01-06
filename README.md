@@ -5,18 +5,11 @@ The System built with Face Recognition using Inception Resnet (V1) models in pyt
 
 The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
-# Key Features
-- **Face Recognition**: Utilizes advanced algorithms to recognize faces in real-time accurately.
-- **Anti-Spoofing**: Utilizes an anti-spoofing model to differentiate between real and fake faces during validation.
-- **Attendance Logging**: Records the ID, visitor name, and timestamp when a person is recognized.
-- **Data Storage Management**: The system maintains 2 data storage for visitors information.
-- **User-Friendly Interface**: The Streamlit web application provides a clean and intuitive interface for users to interact with the system.
-  
 # Features
 The application allows users to perform the following tasks:
-- **Visitor Validation**: Capture an image using the camera and perform face recognition + anti-spoof to validate visitors. The system checks the captured face against the database of known faces and identifies the person if a match is found.
+- **Visitor Validation**: Capture an image using the camera and perform *face recognition with anti-spoof* to differentiate between real and fake faces and validate visitors. The system checks the captured face against the database of known faces and identifies the person if a match is found.
 - **View Visitor History**: View the history of visitor attendance, including their ID, name, and timestamp of the visit. Additionally, the application provides an option to search and display images of specific visitors.
-- **Add to Database**: Add new individuals to the database for future recognition. Users can input the person's name and either upload a picture or capture one using the camera.
+- **Add to Database**: Add new individuals to the database for future recognition. Users can input the person's name and either upload a picture or capture one using the camera. The system maintains 2 data storage (CSV files) for visitors information.
 
 # System Architecture
 The entire code is written in Python **this project made and tested in python 3.11.2**
