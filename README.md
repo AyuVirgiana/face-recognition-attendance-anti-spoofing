@@ -1,4 +1,4 @@
-# FACE RECOGNITION SYSTEM with ANTI SPOOFING
+# FACE RECOGNITION ATTENDANCE SYSTEM with ANTI SPOOFING
 This GitHub repository contains a web-based Facial Recognition Attendance System built with the Python language and the Streamlit framework. 
 
 The System built with Face Recognition using Inception Resnet (V1) models in pytorch, pretrained on VGGFace2 and CASIA-Webface datasets, also Anti-Spoofing models by Minivision. 
