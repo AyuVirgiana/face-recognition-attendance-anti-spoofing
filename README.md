@@ -1,7 +1,7 @@
 # WEB-BASED FACE RECOGNITION ATTENDANCE SYSTEM with ANTI SPOOFING
 This GitHub repository contains a web-based Facial Recognition Attendance System built with Python language and Streamlit framework. 
 
-The System built with Face Recognition using [Inception Resnet (V1) models](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) in pytorch, pretrained on [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/) and CASIA-Webface datasets, also Anti-Spoofing models by Minivision. 
+The System built with Face Recognition using [Inception Resnet (V1) models](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) in pytorch, pretrained on [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/) and CASIA-Webface datasets, [MiniFASNet](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/src/model_lib/MiniFASNet.py) for Anti-Spoofing models by Minivision. 
 
 The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
@@ -30,14 +30,15 @@ The entire code is written in Python **this project made and tested in python 3.
   The Dlib face detector misses some of the hard examples (partial occlusion, silhouettes, etc). This makes the training set too “easy” which causes the model to perform worse on other benchmarks. To solve this, we use [Multi-task CNN](https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html) for face landmark detector that has proven to work very well in this setting.
 
 **Anti-Spoofing**
-- Model: MiniFASNetV1, MiniFASNetV2 supported by [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git) developed by (https://www.minivision.cn/).
+- Model: [MiniFASNet](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/src/model_lib/MiniFASNet.py) supported by [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git) developed by (https://www.minivision.cn/).
 
 **Installation Requirements**
 [requirement.txt](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/requirement.txt) consists the version of requirements we used in this app
 
 # Training Data 
 - **Face Recognition Model**
-The following models have been ported to pytorch (with links to download pytorch state_dict's):
+
+  The following models have been ported to pytorch (with links to download pytorch state_dict's):
 
   |Model name|LFW accuracy (as listed [here](https://github.com/davidsandberg/facenet))|Training dataset|
   | :- | :-: | -: |
@@ -54,7 +55,8 @@ The following models have been ported to pytorch (with links to download pytorch
   [Classifier training of inception resnet v1](https://github.com/davidsandberg/facenet/wiki/Classifier-training-of-inception-resnet-v1) page describes how to train the Inception-Resnet-v1 model as a classifier, i.e. not using Triplet Loss as was described in the Facenet paper.
 
 - **Anti-spoofing Model**
-cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
+
+  cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
   1. The training set is divided into three categories, and the pictures of the same category are put into a folder;
   2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;
      - Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;
