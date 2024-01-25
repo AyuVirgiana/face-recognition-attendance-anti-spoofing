@@ -335,7 +335,7 @@ def main():
         face_name  = col1.text_input('Name:', '')
         pic_option = col2.radio('Upload Picture',
                                 options=["Upload a Picture",
-                                         "Take a picture"])
+                                         "Take a Picture with Cam"])
 
         if pic_option == 'Upload a Picture':
             img_file_buffer = col3.file_uploader('Upload a Picture',
@@ -345,8 +345,8 @@ def main():
                 file_bytes = np.asarray(bytearray(img_file_buffer.read()),
                                         dtype=np.uint8)
 
-        elif pic_option == 'Click a picture':
-            img_file_buffer = col3.camera_input("Click a picture")
+        elif pic_option == 'Take a Picture with Cam':
+            img_file_buffer = col3.camera_input("Take a Picture with Cam")
             if img_file_buffer is not None:
                 # To read image file buffer with OpenCV:
                 file_bytes = np.frombuffer(img_file_buffer.getvalue(),
