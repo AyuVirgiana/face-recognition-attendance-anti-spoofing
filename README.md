@@ -37,7 +37,7 @@ The entire code is written in Python **this project made and tested in python 3.
 
 # Training Data 
 - **Face Recognition Model**
-  The following models have been ported to pytorch (with links to download pytorch state_dict's):
+The following models have been ported to pytorch (with links to download pytorch state_dict's):
 
   |Model name|LFW accuracy (as listed [here](https://github.com/davidsandberg/facenet))|Training dataset|
   | :- | :-: | -: |
@@ -54,7 +54,7 @@ The entire code is written in Python **this project made and tested in python 3.
   [Classifier training of inception resnet v1](https://github.com/davidsandberg/facenet/wiki/Classifier-training-of-inception-resnet-v1) page describes how to train the Inception-Resnet-v1 model as a classifier, i.e. not using Triplet Loss as was described in the Facenet paper.
 
 - **Anti-spoofing Model**
-  cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
+cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
   1. The training set is divided into three categories, and the pictures of the same category are put into a folder;
   2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;
      - Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;
