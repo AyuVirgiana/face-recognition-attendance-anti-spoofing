@@ -55,12 +55,12 @@ The entire code is written in Python **this project made and tested in python 3.
 
 - **Anti-spoofing Model**
   cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
-1. The training set is divided into three categories, and the pictures of the same category are put into a folder;  
-2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;  
-- Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;  
-- Patch based on original(scale_height**x**width),The face detector is used to obtain the face frame, and the edge of the face frame is expanded according to a certain scale. In order to ensure the consistency of the input size of the model, the area of the face frame is resized to a fixed size (width, height). Fig. 2-4 shows the patch examples with scales of 1, 2.7 and 4;  
-  ![patch demo](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/patch_demo.png)  
-3. The Fourier spectrum is used as the auxiliary supervision, and the corresponding Fourier spectrum is generated online from the training set images.  
+  1. The training set is divided into three categories, and the pictures of the same category are put into a folder;
+  2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;
+     - Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;
+     - Patch based on original(scale_height**x**width),The face detector is used to obtain the face frame, and the edge of the face frame is expanded according to a certain scale. In order to ensure the consistency of the input size of the model, the area of the face frame is resized to a fixed size (width, height). Fig. 2-4 shows the patch examples with scales of 1, 2.7 and 4;  
+  ![patch demo](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/patch_demo.png)
+  3. The Fourier spectrum is used as the auxiliary supervision, and the corresponding Fourier spectrum is generated online from the training set images.  
 
 # Installation
 Clone the repository:
