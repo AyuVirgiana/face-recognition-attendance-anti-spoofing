@@ -36,13 +36,13 @@ The entire code is written in Python **this project made and tested in python 3.
 [requirement.txt](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/requirement.txt) consists the version of requirements we used in this app
 
 # Training Data 
-- Face Recognition Model
+- **Face Recognition Model**
   The following models have been ported to pytorch (with links to download pytorch state_dict's):
 
-|Model name|LFW accuracy (as listed [here](https://github.com/davidsandberg/facenet))|Training dataset|
-| :- | :-: | -: |
-|[20180408-102900](https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180408-102900-casia-webface.pt) (111MB)|0.9905|CASIA-Webface|
-|[20180402-114759](https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180402-114759-vggface2.pt) (107MB)|0.9965|VGGFace2|
+  |Model name|LFW accuracy (as listed [here](https://github.com/davidsandberg/facenet))|Training dataset|
+  | :- | :-: | -: |
+  |[20180408-102900](https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180408-102900-casia-webface.pt) (111MB)|0.9905|CASIA-Webface|
+  |[20180402-114759](https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180402-114759-vggface2.pt) (107MB)|0.9965|VGGFace2|
 
   There is no need to manually download the pretrained state_dict's; they are downloaded automatically on model instantiation and cached for future use in the torch cache. To use an [Inception Resnet (V1) models](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) for facial recognition/identification in pytorch, use:
   
@@ -53,8 +53,8 @@ The entire code is written in Python **this project made and tested in python 3.
 
   [Classifier training of inception resnet v1](https://github.com/davidsandberg/facenet/wiki/Classifier-training-of-inception-resnet-v1) page describes how to train the Inception-Resnet-v1 model as a classifier, i.e. not using Triplet Loss as was described in the Facenet paper.
 
-- Anti-spoofing Model
-cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
+- **Anti-spoofing Model**
+  cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
 1. The training set is divided into three categories, and the pictures of the same category are put into a folder;  
 2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;  
 - Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;  
