@@ -335,7 +335,7 @@ def main():
         face_name  = col1.text_input('Name:', '')
         pic_option = col2.radio('Upload Picture',
                                 options=["Upload a Picture",
-                                         "Click a picture"])
+                                         "Take a picture"])
 
         if pic_option == 'Upload a Picture':
             img_file_buffer = col3.file_uploader('Upload a Picture',
