@@ -1,7 +1,7 @@
 # WEB-BASED FACE RECOGNITION ATTENDANCE SYSTEM with ANTI SPOOFING
 This GitHub repository contains a web-based Facial Recognition Attendance System built with Python language and Streamlit framework. 
 
-The System built with Face Recognition using Inception Resnet (V1) models in pytorch, pretrained on [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/) and CASIA-Webface datasets, also Anti-Spoofing models by Minivision. 
+The System built with Face Recognition using [Inception Resnet (V1) models](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) in pytorch, pretrained on [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/) and CASIA-Webface datasets, also Anti-Spoofing models by Minivision. 
 
 The system is designed to accurately identify and record attendance using facial recognition while incorporating measures to prevent spoofing attempts.
 
@@ -25,7 +25,7 @@ The entire code is written in Python **this project made and tested in python 3.
 
 **Face Recognition:**
 - Library:
-  Using facenet_pytorch for [InceptionResnetV1 Models](https://arxiv.org/abs/1602.07261) , pretrained on [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/) and CASIA-Webface datasets. The datasets aligned with [MTCNN](https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html).
+  Using facenet_pytorch for [Inception Resnet (V1) models](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py), pretrained on [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/) and CASIA-Webface datasets. The datasets aligned with [MTCNN](https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html).
 - **WHY [MTCNN](https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html)?**
   The Dlib face detector misses some of the hard examples (partial occlusion, silhouettes, etc). This makes the training set too “easy” which causes the model to perform worse on other benchmarks. To solve this, we use [Multi-task CNN](https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html) for face landmark detector that has proven to work very well in this setting.
 
@@ -37,8 +37,15 @@ The entire code is written in Python **this project made and tested in python 3.
 
 # Training Data 
 - Face Recognition Model
-  There is no need to manually download the pretrained state_dict's; they are downloaded automatically on model instantiation and cached for future use in the torch cache. To use an Inception Resnet (V1) model for facial recognition/identification in pytorch, use:
+  The following models have been ported to pytorch (with links to download pytorch state_dict's):
 
+|Model name|LFW accuracy (as listed [here](https://github.com/davidsandberg/facenet))|Training dataset|
+| :- | :-: | -: |
+|[20180408-102900](https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180408-102900-casia-webface.pt) (111MB)|0.9905|CASIA-Webface|
+|[20180402-114759](https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180402-114759-vggface2.pt) (107MB)|0.9965|VGGFace2|
+
+  There is no need to manually download the pretrained state_dict's; they are downloaded automatically on model instantiation and cached for future use in the torch cache. To use an [Inception Resnet (V1) models](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) for facial recognition/identification in pytorch, use:
+  
   ```python
   from facenet_pytorch import InceptionResnetV1 
   ```
@@ -47,13 +54,13 @@ The entire code is written in Python **this project made and tested in python 3.
   [Classifier training of inception resnet v1](https://github.com/davidsandberg/facenet/wiki/Classifier-training-of-inception-resnet-v1) page describes how to train the Inception-Resnet-v1 model as a classifier, i.e. not using Triplet Loss as was described in the Facenet paper.
 
 - Anti-spoofing Model
-  cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
-  1. The training set is divided into three categories, and the pictures of the same category are put into a folder;  
-  2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;  
-  - Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;  
-  - Patch based on original(scale_height**x**width),The face detector is used to obtain the face frame, and the edge of the face frame is expanded according to a certain scale. In order to ensure the consistency of the input size of the model, the area of the face frame is resized to a fixed size (width, height). Fig. 2-4 shows the patch examples with scales of 1, 2.7 and 4;  
+cited from [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git)
+1. The training set is divided into three categories, and the pictures of the same category are put into a folder;  
+2. Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;  
+- Original picture(org_1_height**x**width),resize the original image to a fixed size (width, height), as shown in Figure 1;  
+- Patch based on original(scale_height**x**width),The face detector is used to obtain the face frame, and the edge of the face frame is expanded according to a certain scale. In order to ensure the consistency of the input size of the model, the area of the face frame is resized to a fixed size (width, height). Fig. 2-4 shows the patch examples with scales of 1, 2.7 and 4;  
   ![patch demo](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/patch_demo.png)  
-
+3. The Fourier spectrum is used as the auxiliary supervision, and the corresponding Fourier spectrum is generated online from the training set images.  
 
 # Installation
 Clone the repository:
