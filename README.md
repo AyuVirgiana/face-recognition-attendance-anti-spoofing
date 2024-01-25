@@ -13,6 +13,7 @@ The application allows users to perform the following tasks:
 
 The demo pictures of the features are available on our **Medium** ["Web-based Face Recognition Attendance System with Anti Spoofing"](https://medium.com/@ayuvirgiana10/web-based-face-recognition-attendance-system-with-anti-spoofing-cd479d193e6b).
 
+
 # System Architecture
 The entire code is written in Python **this project made and tested in python 3.11.2**
 
@@ -35,6 +36,7 @@ The entire code is written in Python **this project made and tested in python 3.
 **Installation Requirements**
 - [requirement.txt](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/requirements.txt) consists the version of requirements we used in this app
 
+
 # Training Data 
 - **Face Recognition Model**
 
@@ -50,7 +52,7 @@ The entire code is written in Python **this project made and tested in python 3.
   ```python
   from facenet_pytorch import InceptionResnetV1 
   ```
-  Used in [app.py](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/app.py), line 10.
+  Used in this app => [app.py](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/app.py), line 10.
 
   [Classifier training of inception resnet v1](https://github.com/davidsandberg/facenet/wiki/Classifier-training-of-inception-resnet-v1) page describes how to train the Inception-Resnet-v1 model as a classifier, i.e. not using Triplet Loss as was described in the Facenet paper.
 
@@ -63,6 +65,7 @@ The entire code is written in Python **this project made and tested in python 3.
      - Patch based on original(scale_height**x**width),The face detector is used to obtain the face frame, and the edge of the face frame is expanded according to a certain scale. In order to ensure the consistency of the input size of the model, the area of the face frame is resized to a fixed size (width, height). Fig. 2-4 shows the patch examples with scales of 1, 2.7 and 4;  
   ![patch demo](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/patch_demo.png)
   3. The Fourier spectrum is used as the auxiliary supervision, and the corresponding Fourier spectrum is generated online from the training set images.  
+
 
 # Installation
 Clone the repository:
@@ -79,7 +82,8 @@ pip install -r requirements.txt
 ```bash
 streamlit run [app.py] [ARGUMENTS)
 ```
-   
+
+
 # References
 - This project is supported by [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git) belongs to [minivision technology](https://www.minivision.cn/).Special thanks to Minivision for providing the anti-spoofing models used in this test. 
 - (https://github.com/timesler/facenet-pytorch.git) Face Recognition using Pytorch by timesler
