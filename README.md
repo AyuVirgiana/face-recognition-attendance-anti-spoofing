@@ -33,7 +33,7 @@ The entire code is written in Python **this project made and tested in python 3.
 - Model: [MiniFASNet](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/src/model_lib/MiniFASNet.py) supported by [Silent-Face-Anti-Spoofing](https://github.com/computervisioneng/Silent-Face-Anti-Spoofing.git) developed by (https://www.minivision.cn/).
 
 **Installation Requirements**
-[requirement.txt](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/requirement.txt) consists the version of requirements we used in this app
+- [requirement.txt](https://github.com/AyuVirgiana/face-recognition-attendance-anti-spoofing/blob/main/requirements.txt) consists the version of requirements we used in this app
 
 # Training Data 
 - **Face Recognition Model**
