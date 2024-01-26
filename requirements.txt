@@ -7,6 +7,6 @@ facenet_pytorch==2.5.3
 torch==1.13.1
 tqdm==4.64.1
 torchvision==0.14.1
-opencv-python==4.6.0.66
+opencv-python
 Pillow==9.3.0
 tensorboardX==2.6
